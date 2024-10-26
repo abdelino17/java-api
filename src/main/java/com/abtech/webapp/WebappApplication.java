@@ -1,5 +1,7 @@
 package com.abtech.webapp;
 
+import java.lang.Thread;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +15,13 @@ import io.prometheus.metrics.exporter.servlet.jakarta.PrometheusMetricsServlet;
 public class WebappApplication {
 
 	public static void main(String[] args) {
+		try {
+			Thread.sleep(50000); // Sleep for 1 second
+		} catch (InterruptedException e) {
+			// Handle the interrupted exception
+			System.out.println("The rate-limited thread was interrupted");
+		}
+
 		SpringApplication.run(WebappApplication.class, args);
 		JvmMetrics.builder().register();
 		System.out.println("Starting webserver...");

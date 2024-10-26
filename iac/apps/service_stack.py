@@ -119,7 +119,7 @@ class ServiceStack(TerraformStack):
                 [
                     {
                         "name": "svc",
-                        "image": "abdelino/java-api:v1.1.0",
+                        "image": "abdelino/java-api:v1.2.0",
                         "networkMode": "awsvpc",
                         "portMappings": [{"containerPort": 8080, "hostPort": 8080}],
                     }
