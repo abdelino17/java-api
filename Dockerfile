@@ -1,4 +1,4 @@
-FROM maven:3.9-amazoncorretto-23 AS builder
+FROM maven:3.9-amazoncorretto-21 AS builder
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ COPY src src
 
 RUN mvn clean package
 
-FROM amazoncorretto:23-alpine
+FROM amazoncorretto:21-alpine
 
 COPY --from=builder /app/target/*.jar /app/java-api.jar
 
