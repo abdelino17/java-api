@@ -14,6 +14,4 @@ COPY --from=builder /app/target/*.jar /app/java-api.jar
 
 EXPOSE 8080
 
-USER java
-
 ENTRYPOINT ["java","-jar","/app/java-api.jar"]
