@@ -24,6 +24,12 @@ class ApiController {
     return "pong";
   }
 
+  @GetMapping("/healthcheck")
+  public String healthcheck() {
+    requestCounter.labelValues("/healthcheck").inc();
+    return "ok";
+  }
+
   @GetMapping("/hello")
   public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
     requestCounter.labelValues("/hello").inc();

@@ -110,8 +110,8 @@ class ServiceStack(TerraformStack):
             family="service",
             network_mode="awsvpc",
             requires_compatibilities=["FARGATE"],
-            cpu="512",
-            memory="1024",
+            cpu="256",
+            memory="512",
             runtime_platform=EcsTaskDefinitionRuntimePlatform(
                 operating_system_family="LINUX", cpu_architecture="ARM64"
             ),
@@ -119,9 +119,7 @@ class ServiceStack(TerraformStack):
                 [
                     {
                         "name": "svc",
-                        "cpu": 256,
-                        "memory": 512,
-                        "image": "abdelino/java-api:v1.0.0",
+                        "image": "abdelino/java-api:v1.1.0",
                         "networkMode": "awsvpc",
                         "portMappings": [{"containerPort": 8080, "hostPort": 8080}],
                     }
